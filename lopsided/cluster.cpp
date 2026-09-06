@@ -11,8 +11,8 @@ using namespace chrono::irrlicht;
 int main(int argc, char *argv[]) {
   ChSystemNSC sys;
 
-  auto sim_config = Ship::configure_sim();
-  sys.Add(sim_config->get_body());
+  auto sim_ship = Ship::configure_sim();
+  sys.Add(sim_ship->get_body());
 
   auto vis = chrono_types::make_shared<ChVisualSystemIrrlicht>();
   vis->AttachSystem(&sys);
@@ -47,11 +47,11 @@ int main(int argc, char *argv[]) {
     vis->Render();
     vis->RenderCOGFrames(
         5.0); // 0.5 dictates the line length of the drawn axes in meters
-    ChVector3d obj_pos = sim_config->get_body()->GetPos();
+    ChVector3d obj_pos = sim_ship->get_body()->GetPos();
     vis->UpdateCamera(obj_pos + cam_offset, obj_pos);
     vis->EndScene();
 
-    sim_config->apply_thrust_actions(sys.GetChTime());
+    sim_ship->apply_thrust_actions(sys.GetChTime());
 
     sys.DoStepDynamics(time_step);
   }
