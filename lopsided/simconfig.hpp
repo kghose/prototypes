@@ -4,6 +4,9 @@
  * configurations and can enventually replace it with a loadable simulation data
  * file.
  */
+
+// TODO: Rename this as SimBody
+
 #pragma once
 #include "chrono/physics/ChBodyEasy.h"
 
@@ -12,7 +15,6 @@ using namespace chrono;
 class SimConfig {
 public:
   virtual ~SimConfig() = default;
-  virtual double get_end_s() = 0;
   virtual std::shared_ptr<ChBodyEasyClusterOfSpheres> get_body() = 0;
   virtual void apply_thrust_actions(double t_s) = 0;
 

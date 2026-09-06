@@ -11,6 +11,8 @@ find_package(Chrono REQUIRED COMPONENTS Irrlicht)
 add_library(SimConfigLib
 	simconfig.cpp
 	simconfig.hpp
+	simfile.cpp
+	simfile.hpp
 )
 target_link_libraries(
 	SimConfigLib
