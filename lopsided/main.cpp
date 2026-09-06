@@ -3,7 +3,7 @@
 #include "chrono/physics/ChSystemNSC.h"
 #include "chrono_irrlicht/ChVisualSystemIrrlicht.h"
 
-#include "simconfig.hpp"
+#include "ship.hpp"
 
 using namespace chrono;
 using namespace chrono::irrlicht;

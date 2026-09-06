@@ -3,10 +3,8 @@
 #include "chrono/core/ChVector3.h"
 #include "chrono/physics/ChBodyEasy.h"
 
-#include "simconfig.hpp"
+#include "ship.hpp"
 #include "simfile.hpp"
-
-// TODO: Rename this as SimBody
 
 struct Force {
   double start_s;

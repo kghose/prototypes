@@ -9,14 +9,14 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(Chrono REQUIRED COMPONENTS Irrlicht)
 
 add_library(
-	SimConfigLib
-	simconfig.cpp
-	simconfig.hpp
+	SimLib
+	ship.cpp
+	ship.hpp
 	simfile.cpp
 	simfile.hpp
 )
 target_link_libraries(
-	SimConfigLib
+	SimLib
 	Chrono::Chrono_core
 ) 
 
@@ -25,6 +25,6 @@ target_link_libraries(
 	sim 
 	Chrono::Chrono_core 
 	Chrono::Chrono_irrlicht 
-	SimConfigLib
+	SimLib
 )
 
