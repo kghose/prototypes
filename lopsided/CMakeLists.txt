@@ -20,7 +20,7 @@ target_link_libraries(
 	Chrono::Chrono_core
 ) 
 
-add_executable(sim cluster.cpp)
+add_executable(sim main.cpp)
 target_link_libraries(
 	sim 
 	Chrono::Chrono_core 
