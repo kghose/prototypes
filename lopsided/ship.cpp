@@ -21,8 +21,8 @@ private:
   std::vector<Force> forces;
 
 public:
-  ShipImpl() {
-    SimSetup this_sim = load_from("simconfig.txt");
+  ShipImpl(std::string fname) {
+    SimSetup this_sim = load_from(fname);
 
     std::vector<ChVector3d> sphere_pos;
     std::vector<double> sphere_radii;
@@ -74,6 +74,6 @@ public:
   }
 };
 
-std::unique_ptr<Ship> Ship::configure_sim() {
-  return std::make_unique<ShipImpl>();
+std::unique_ptr<Ship> Ship::configure_sim(std::string fname) {
+  return std::make_unique<ShipImpl>(fname);
 }

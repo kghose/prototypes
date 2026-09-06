@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "chrono/core/ChQuaternion.h"
 #include "chrono/core/ChVector3.h"
 #include "chrono/physics/ChSystemNSC.h"
@@ -9,9 +11,14 @@ using namespace chrono;
 using namespace chrono::irrlicht;
 
 int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    std::cerr << "Usage: sim <sim file name>" << std::endl;
+    exit(1);
+  }
+
   ChSystemNSC sys;
 
-  auto sim_ship = Ship::configure_sim();
+  auto sim_ship = Ship::configure_sim(argv[1]);
   sys.Add(sim_ship->get_body());
 
   auto vis = chrono_types::make_shared<ChVisualSystemIrrlicht>();
@@ -29,12 +36,12 @@ int main(int argc, char *argv[]) {
       /*num_divisions_z=*/100,
       /*frame=*/grid_frame,
       /*color=*/ChColor(0.3f, 0.3f, 0.3f));
-  
+
   vis->EnableAbsCoordsysDrawing(true);
 
   vis->Initialize();
   vis->AddTypicalLights();
-  
+
   ChVector3d cam_offset(10, 10, 0);
 
   vis->AddCamera(ChVector3d(0, 20, -20), ChVector3d(0, 1, 0));

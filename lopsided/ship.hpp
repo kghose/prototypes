@@ -18,5 +18,5 @@ public:
   virtual std::shared_ptr<ChBodyEasyClusterOfSpheres> get_body() = 0;
   virtual void apply_thrust_actions(double t_s) = 0;
 
-  static std::unique_ptr<Ship> configure_sim();
+  static std::unique_ptr<Ship> configure_sim(std::string fname);
 };
