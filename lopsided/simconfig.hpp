@@ -12,11 +12,11 @@
 
 using namespace chrono;
 
-class SimConfig {
+class Ship {
 public:
-  virtual ~SimConfig() = default;
+  virtual ~Ship() = default;
   virtual std::shared_ptr<ChBodyEasyClusterOfSpheres> get_body() = 0;
   virtual void apply_thrust_actions(double t_s) = 0;
 
-  static std::unique_ptr<SimConfig> configure_sim();
+  static std::unique_ptr<Ship> configure_sim();
 };

@@ -15,7 +15,7 @@ struct Force {
   std::shared_ptr<ChForce> force;
 };
 
-class ClusterSimConfig : public SimConfig {
+class ShipImpl : public Ship {
 private:
   std::shared_ptr<ChBodyEasyClusterOfSpheres> body;
   // std::vector<Thrust> thrust_actions;
@@ -23,7 +23,7 @@ private:
   std::vector<Force> forces;
 
 public:
-  ClusterSimConfig() {
+  ShipImpl() {
     SimSetup this_sim = load_from("simconfig.txt");
 
     std::vector<ChVector3d> sphere_pos;
@@ -76,6 +76,6 @@ public:
   }
 };
 
-std::unique_ptr<SimConfig> SimConfig::configure_sim() {
-  return std::make_unique<ClusterSimConfig>();
+std::unique_ptr<Ship> Ship::configure_sim() {
+  return std::make_unique<ShipImpl>();
 }

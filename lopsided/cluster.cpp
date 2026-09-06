@@ -11,7 +11,7 @@ using namespace chrono::irrlicht;
 int main(int argc, char *argv[]) {
   ChSystemNSC sys;
 
-  auto sim_config = SimConfig::configure_sim();
+  auto sim_config = Ship::configure_sim();
   sys.Add(sim_config->get_body());
 
   auto vis = chrono_types::make_shared<ChVisualSystemIrrlicht>();
