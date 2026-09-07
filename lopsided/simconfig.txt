@@ -1,6 +1,15 @@
 
 density 100
-part r 0.5 p 0 0 3 
+part r 0.35 p 0 0 .5 
+part r 0.2 p 0 0 0 
 part r 0.2 p 0 0 -3
-# thrust t0 0 t1 0.1 f 2000 p 0 0 3 d 1 0 0
-# thrust t0 0.2 t1 0.5 f 1000 p 0.1 0.4 6 d 1 0 0
+
+# Spinner
+thrust t0 0 t1 1 f 10 p 0 0 -3 d 0 -1 0
+
+# Turn ship
+thrust t0 2 t1 3 f 20 p 0 0 -3 d 1 0 0 
+thrust t0 3 t1 4 f 20 p 0 0 -3 d -1 0 0
+
+# Main engine
+thrust t0 10 t1 50 f 20 p 0 0 0 d 1 0 0
