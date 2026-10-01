@@ -28,7 +28,7 @@ worked in one shot.
 
 (150 kB binary)
 
-## [stream_preview.cpp)(stream_preview.cpp)
+## [stream_preview.cpp](stream_preview.cpp)
 
 > Superb! Could you modify this program so that it loops, taking snapshots at
 > regular intervals until the window is closed?
