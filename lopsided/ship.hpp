@@ -8,14 +8,14 @@
 // TODO: Rename this as SimBody
 
 #pragma once
-#include "chrono/physics/ChBodyEasy.h"
+#include "chrono/physics/ChBody.h"
 
 using namespace chrono;
 
 class Ship {
 public:
   virtual ~Ship() = default;
-  virtual std::shared_ptr<ChBodyEasyClusterOfSpheres> get_body() = 0;
+  virtual std::shared_ptr<ChBody> get_body() = 0;
   virtual void apply_thrust_actions(double t_s) = 0;
 
   static std::unique_ptr<Ship> configure_sim(std::string fname);

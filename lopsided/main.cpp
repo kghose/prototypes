@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
     vis->RenderCOGFrames(
         5.0); // 0.5 dictates the line length of the drawn axes in meters
     ChVector3d obj_pos = sim_ship->get_body()->GetPos();
-    vis->UpdateCamera(obj_pos + cam_offset, obj_pos);
+    // vis->UpdateCamera(obj_pos + cam_offset, obj_pos);
     vis->EndScene();
 
     sim_ship->apply_thrust_actions(sys.GetChTime());
