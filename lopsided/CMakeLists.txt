@@ -10,8 +10,8 @@ find_package(Chrono REQUIRED COMPONENTS Irrlicht)
 
 add_library(
 	SimLib
-	ship.cpp
-	ship.hpp
+	sim.cpp
+	sim.hpp
 	simfile.cpp
 	simfile.hpp
 )

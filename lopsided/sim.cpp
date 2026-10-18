@@ -4,7 +4,7 @@
 #include "chrono/core/ChVector3.h"
 #include "chrono/physics/ChBody.h"
 
-#include "ship.hpp"
+#include "sim.hpp"
 #include "simfile.hpp"
 
 struct Force {
