@@ -16,10 +16,12 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
+  SimFile sim_file = load_simfile(argv[1]);
+
   ChSystemNSC sys;
 
-  auto sim_ship = Ship::configure_sim(argv[1]);
-  sys.Add(sim_ship->get_body());
+  auto sim = Sim(sim_file);
+  sys.Add(sim.ship());
 
   auto vis = chrono_types::make_shared<ChVisualSystemIrrlicht>();
   vis->AttachSystem(&sys);
@@ -44,7 +46,7 @@ int main(int argc, char *argv[]) {
 
   ChVector3d cam_offset(10, 10, 0);
 
-  vis->AddCamera(ChVector3d(0, 20, -20), ChVector3d(0, 1, 0));
+  vis->AddCamera(sim_file.camera.pos, sim_file.camera.target);
 
   // 6. Simulation loop
   double time_step = 0.01;
@@ -54,11 +56,11 @@ int main(int argc, char *argv[]) {
     vis->Render();
     vis->RenderCOGFrames(
         5.0); // 0.5 dictates the line length of the drawn axes in meters
-    ChVector3d obj_pos = sim_ship->get_body()->GetPos();
+    ChVector3d obj_pos = sim.ship()->GetPos();
     // vis->UpdateCamera(obj_pos + cam_offset, obj_pos);
     vis->EndScene();
 
-    sim_ship->apply_thrust_actions(sys.GetChTime());
+    sim.apply_thrust_actions(sys.GetChTime());
 
     sys.DoStepDynamics(time_step);
   }

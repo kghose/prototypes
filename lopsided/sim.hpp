@@ -5,18 +5,19 @@
  * file.
  */
 
-// TODO: Rename this as SimBody
-
 #pragma once
 #include "chrono/physics/ChBody.h"
 
+#include "simfile.hpp"
+
 using namespace chrono;
 
-class Ship {
-public:
-  virtual ~Ship() = default;
-  virtual std::shared_ptr<ChBody> get_body() = 0;
-  virtual void apply_thrust_actions(double t_s) = 0;
+class Sim {
+  std::shared_ptr<ChBody> ship_;
+  std::vector<ThrusterAction> thruster_actions_;
 
-  static std::unique_ptr<Ship> configure_sim(std::string fname);
+public:
+  Sim(const SimFile &);
+  std::shared_ptr<ChBody> ship();
+  void apply_thrust_actions(double t_s);
 };
